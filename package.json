@@ -1,13 +1,12 @@
 {
-  "name": "Kronan-Reg",
+  "name": "application-name",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "app.js"
+    "start": "node app.js"
   },
   "dependencies": {
-    "express": "*",
-    "ejs": "*",
-    "nconf": "*"
-   }
+    "express": "3.4.7",
+    "ejs": "*"
+  }
 }

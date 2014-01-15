@@ -1,19 +1,49 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var url = require('url');
-var config = require('./config');
 
 var app = express();
+app.set('port', 3000);
 
-app.engine('ejs', require('ejs-locals'));
-app.set('views', __dirname + '/template');
-app.set('view engine', 'ejs');
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
 
-app.use(express.favicon());
+// Middleware
+app.use(function(req, res, next) {
+  if (req.url == '/') {
+    res.end("Hello");
+  } else {
+    next();
+  }
+});
 
-var server = http.createServer(app);
+app.use(function(req, res, next) {
+  if (req.url == '/forbidden') {
+    next(new Error("wops, denied"));
+  } else {
+    next();
+  }
+});
 
-server.listen(config.get('port'), function () {
-	console.log("Express server started up");
+app.use(function(req, res, next) {
+  if (req.url == '/test') {
+    res.end("Test");
+  } else {
+    next();
+  }
+});
+
+app.use(function(req, res) {
+  res.send(404, "Page Not Found Sorry");
+});
+
+app.use(function(err, req, res, next) {
+  // NODE_ENV = 'production'
+  if (app.get('env') == 'development') {
+    var errorHandler = express.errorHandler();
+    errorHandler(err, req, res, next);
+  } else {
+    res.send(500);
+  }
 });
