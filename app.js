@@ -1,42 +1,34 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
+var config = require('./config');
+var log = require('log4js').getLogger();
 
 var app = express();
-app.set('port', 3000);
+app.set('views', __dirname + '/template');
+app.set('view engine', 'ejs');
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+app.use(express.favicon()); // /favicon.ico
+if (app.get('env') == 'development') {
+  app.use(express.logger('dev'));
+} else {
+  app.use(express.logger('default'));
+}
+
+app.use(express.bodyParser());  // req.body....
+
+app.use(express.cookieParser()); // req.cookies
+
+app.use(app.router);
+
+app.get('/', function(req, res, next) {
+  res.render("index", {
+    body: '<b>Hello</b>'
+  });
 });
 
-// Middleware
-app.use(function(req, res, next) {
-  if (req.url == '/') {
-    res.end("Hello");
-  } else {
-    next();
-  }
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res, next) {
-  if (req.url == '/forbidden') {
-    next(new Error("wops, denied"));
-  } else {
-    next();
-  }
-});
-
-app.use(function(req, res, next) {
-  if (req.url == '/test') {
-    res.end("Test");
-  } else {
-    next();
-  }
-});
-
-app.use(function(req, res) {
-  res.send(404, "Page Not Found Sorry");
-});
 
 app.use(function(err, req, res, next) {
   // NODE_ENV = 'production'
@@ -46,4 +38,8 @@ app.use(function(err, req, res, next) {
   } else {
     res.send(500);
   }
+});
+
+http.createServer(app).listen(config.get('port'), function(){
+  log.info('Express server listening on port ' + config.get('port'));
 });
