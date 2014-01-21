@@ -5,6 +5,8 @@ var config = require('./config');
 var log = require('log4js').getLogger();
 
 var app = express();
+
+app.engine('ejs', require('ejs-locals')); // layout partial block
 app.set('views', __dirname + '/template');
 app.set('view engine', 'ejs');
 
@@ -23,7 +25,7 @@ app.use(app.router);
 
 app.get('/', function(req, res, next) {
   res.render("index", {
-    body: '<b>Hello</b>'
+    
   });
 });
 
@@ -39,7 +41,19 @@ app.use(function(err, req, res, next) {
     res.send(500);
   }
 });
+/*
+
+var routes = require('./routes');
+var user = require('./routes/user');
+
+// all environments
+
+app.get('/', routes.index);
+app.get('/users', user.list);
+
+*/
 
 http.createServer(app).listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });
+

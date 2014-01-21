@@ -1,14 +1,4 @@
-<html>
-<head>
-	<title>Hello, world!</title>
-</head>
-<body>
-<section class="container">
+<% layout('layout/page') -%>
+<% block('title', 'привет nodejs!'); -%>
 
-	<h1>Привет, Мир!</h1>
-
-	<%=body%>
-	<%-body%>
-</section>
-</body>
-</html>
+<p class="lead">Всем привет!</p>
