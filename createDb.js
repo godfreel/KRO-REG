@@ -1,21 +1,18 @@
-var MongoClient = require('mongodb').MongoClient
-  , format = require('util').format;
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
 
-MongoClient.connect('mongodb://127.0.0.1:27017/chat', function(err, db) {
-  if (err) throw err;
+var schema = mongoose.Schema({
+	name: String
+});
 
-  var collection = db.collection('test_insert');
-  collection.remove({}, function(err, affected) {
-    if (err) throw err;
+schema.methods.meow = function() {
+	console.log(this.get("name"));
+}
 
-    collection.insert({a: 2}, function(err, docs) {
+var Cat = mongoose.model('Cat', { name: String });
 
-      var cursor = collection.find({a: 2});
-      cursor.toArray(function(err, results) {
-        console.dir(results);
-        db.close();
-      });
-    });
-
-  });
+var kitty = new Cat({ name: 'Zildjian' });
+kitty.save(function (err) {
+  if (err) // ...
+  console.log('meow');
 });
