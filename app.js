@@ -6,20 +6,21 @@ var log = require('log4js').getLogger();
 
 var app = express();
 
-app.engine('ejs', require('ejs-locals')); // layout partial block
+app.engine('ejs', require('ejs-locals'));
 app.set('views', __dirname + '/template');
 app.set('view engine', 'ejs');
 
-app.use(express.favicon()); // /favicon.ico
+app.use(express.favicon());
+
 if (app.get('env') == 'development') {
   app.use(express.logger('dev'));
 } else {
   app.use(express.logger('default'));
 }
 
-app.use(express.bodyParser());  // req.body....
+app.use(express.bodyParser());
 
-app.use(express.cookieParser()); // req.cookies
+app.use(express.cookieParser());
 
 app.use(app.router);
 
@@ -33,7 +34,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(function(err, req, res, next) {
-  // NODE_ENV = 'production'
   if (app.get('env') == 'development') {
     var errorHandler = express.errorHandler();
     errorHandler(err, req, res, next);
