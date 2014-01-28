@@ -1,8 +1,8 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var config = require('./config');
-var log = require('log4js').getLogger();
+var config = require('config');
+var log = require('lib/log')(module);
 
 var app = express();
 
@@ -25,9 +25,7 @@ app.use(express.cookieParser());
 app.use(app.router);
 
 app.get('/', function(req, res, next) {
-  res.render("index", {
-    
-  });
+  res.render("index");
 });
 
 app.use(express.static(path.join(__dirname, 'public')));
