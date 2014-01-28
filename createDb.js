@@ -1,18 +1,55 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+var mongoose = require('lib/mongoose');
+mongoose.set('debu', true);
+var async = require('async');
 
-var schema = mongoose.Schema({
-	name: String
+
+async.series([
+  open,
+  dropDatabase,
+  requireModelIndexes,
+  createUsers,
+  close
+], function(err, results) {
+  console.log(arguments);
+  disconnect();
+  process.exit(err ? 255 : 0);
 });
 
-schema.methods.meow = function() {
-	console.log(this.get("name"));
+function open (callback) {
+  mongoose.connection.on('open', callback);
 }
 
-var Cat = mongoose.model('Cat', { name: String });
+function dropDatabase (callback) {
+  var db = mongoose.connection.db;
+  db.dropDatabase(callback);
+}
 
-var kitty = new Cat({ name: 'Zildjian' });
-kitty.save(function (err) {
-  if (err) // ...
-  console.log('meow');
-});
+function requireModelIndexes (callback) {
+  require('models/user');
+
+  async.each(Object.keys(mongoose.models), function(modelName, callback)  {
+    mongoose.models[modelName].ensureIndexes(callback);
+  }, callback);
+}
+
+function createUsers (callback) {
+  var User = require('models/user').User;
+  var users = [
+    {username: 'admin1', password: 'pass'},
+    {username: 'admin1', password: 'pass'},
+    {username: 'admin3', password: 'pass'}
+  ];
+
+  async.each(users, function(userData, callback) {
+    var user = new User(userData);
+    user.save(callback);
+  }, callback);
+}
+
+function close (callback) {
+  disconnect();
+}
+
+function disconnect () {
+  mongoose.disconnect(callback);
+}
