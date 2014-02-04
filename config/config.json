@@ -9,5 +9,28 @@
         }
       }
     }
+  },
+<<<<<<< HEAD
+  "session": {
+    "secret": "KillerIsJim",
+    "key": "sid",
+    "cookie": {
+      "path": "/",
+      "httpOnly": true,
+      "maxAge": null
+    }
   }
+=======
+  "session":{
+      "secret": "killerIsJim",
+      "key": "sid",
+      "cookie": {
+        "path": "/",
+        "httpOnly": true,
+        "maxAge": null
+      }
+    } 
+  
+
+>>>>>>> 149cb2217e74bf0f87aaf0c4797d70494537cfc0
 }

@@ -1,5 +1,5 @@
 var mongoose = require('lib/mongoose');
-mongoose.set('debu', true);
+mongoose.set('debug', true);
 var async = require('async');
 
 
@@ -36,7 +36,7 @@ function createUsers (callback) {
   var User = require('models/user').User;
   var users = [
     {username: 'admin1', password: 'pass'},
-    {username: 'admin1', password: 'pass'},
+    {username: 'admin2', password: 'pass'},
     {username: 'admin3', password: 'pass'}
   ];
 
@@ -51,5 +51,5 @@ function close (callback) {
 }
 
 function disconnect () {
-  mongoose.disconnect(callback);
+  mongoose.disconnect();
 }
