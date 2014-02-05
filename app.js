@@ -5,7 +5,6 @@ var config = require('config');
 var log = require('lib/log')(module);
 var mongoose = require('lib/mongoose');
 var HttpError = require('error').HttpError;
-var MongoStore = require("connect-mongo")(express);
 
 var app = express();
 
@@ -25,30 +24,17 @@ app.use(express.bodyParser());
 
 app.use(express.cookieParser());
 
-<<<<<<< HEAD
 var MongoStore = require('connect-mongo')(express);
 
 app.use(express.session({
   secret: config.get('session:secret'),
   key: config.get('session:key'),
-=======
-app.use(express.session({
-  key: config.get('session:key'),
-  secret: config.get('session:secret'),
->>>>>>> 149cb2217e74bf0f87aaf0c4797d70494537cfc0
   cookie: config.get('session:cookie'),
   store: new MongoStore({mongoose_connection: mongoose.connection})
 }));
 
-<<<<<<< HEAD
-=======
-app.use(function(req, res, next){
-  req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
-  res.send("Visits: " + req.session.numberOfVisits);
-});
-
->>>>>>> 149cb2217e74bf0f87aaf0c4797d70494537cfc0
 app.use(require('middleware/sendHttpError'));
+app.use(require('middleware/loadUser'));
 
 app.use(app.router);
 

@@ -35,8 +35,8 @@
 
     $.ajax({
       url: "/login",
-      data: form.serialize(),
       method: "POST",
+      data: form.serialize(),
       complete: function() {
         $(":submit", form).button("reset");
       },

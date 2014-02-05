@@ -1,3 +1,4 @@
-exports.get = function(req, res) {
-  res.render('logout');
+exports.post = function(req, res) {
+  req.session.destroy();
+  res.redirect('/');
 };
