@@ -2,7 +2,6 @@ var mongoose = require('lib/mongoose');
 mongoose.set('debug', true);
 var async = require('async');
 
-
 async.series([
   open,
   dropDatabase,
