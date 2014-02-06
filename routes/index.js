@@ -4,6 +4,9 @@ module.exports = function(app) {
 
   app.get('/', require('./frontpage').get);
 
+  app.get('/profile', require('./profile').get);
+  
+
   app.get('/login', require('./login').get);
   app.post('/login', require('./login').post);
 
