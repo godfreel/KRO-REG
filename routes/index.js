@@ -5,6 +5,7 @@ module.exports = function(app) {
   app.get('/', require('./frontpage').get);
 
   app.get('/profile', require('./profile').get);
+  app.get('/updateProfile', require('./profile').post);
   
 
   app.get('/login', require('./login').get);
