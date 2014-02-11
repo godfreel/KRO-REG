@@ -5,6 +5,8 @@ var util = require('util');
 var mongoose = require('lib/mongoose'),
   Schema = mongoose.Schema;
 
+  mongoose.set('debug', true);
+
 var schema = new Schema({
   username: {
     type: String,
@@ -67,6 +69,14 @@ schema.virtual('password')
   })
   .get(function() { return this._plainPassword; });
 
+schema.statics.updateUser = function(user, callback)  {
+
+  var query = {username: "name"};
+  User.findOneAndUpdate(query, { sichip: user.sichip }, function(err, user)  {
+    console.log(arguments);
+  });
+
+}
 
 schema.methods.checkPassword = function(password) {
   return this.encryptPassword(password) === this.hashedPassword;
