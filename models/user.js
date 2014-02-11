@@ -11,6 +11,36 @@ var schema = new Schema({
     unique: true,
     required: true
   },
+  lastname: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  
+  club: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  role: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  rank: {
+    type: String,
+    unique: true,
+    required: true
+  },
+  birthday: {
+    type: Date,
+     default: Date.now
+  },
+  sichip: {
+    type: String,
+    unique: true,
+    required: false
+  },
   hashedPassword: {
     type: String,
     required: true

@@ -1,5 +1,50 @@
 <% layout('layout/page') -%>
 <% block('title', "User details") -%>
+<form>
+	<div class="container"> <button class="btn btn-default">Edit</button> 
+	
+		<button class="btn btn-default">Ok</button>
+	<button class="btn btn-default">Cancel</button>
+	</div>
+	<div class="container">
+		<br>
+		<table coumns="2" class="table" visible="true">
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Name</label></td>
+				<td  ><%=user.get('username')%></td>
+			</tr>
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Last Name</label></td>
+				<td  ><%=user.get('lastname')%></td>
+			</tr>
+			
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Birthday</label></td>
+				<td  ><%=user.get('birthday')%></td>
+			</tr>
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Club</label></td>
+				<td  ><%=user.get('club')%></td>
+			</tr>
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Role</label></td>
+				<td  ><%=user.get('role')%></td>
+			</tr>
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Rank</label></td>
+				<td ><%=user.get('rank')%></td>
+			</tr>
+			<tr>
+				<td><label for="" class="col-lg-2 control-label">Si-chip</label></td>
+				<td  ><%=user.get('sichip')%></td>
+			</tr>
+			
+		
+		
+		
+		</table> 
+  	</div>
+</form>
 
 
-<p class="lead">Здесь будут детальки .</p>
+
