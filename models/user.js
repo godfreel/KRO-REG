@@ -13,41 +13,17 @@ var schema = new Schema({
     unique: true,
     required: true
   },
-  firstname: {
-    type: String,
-    unique: true,
-    required: false
-  },
-  lastname: {
-    type: String,
-    unique: true,
-    required: false
-  },
-  
-  club: {
-    type: String,
-    unique: true,
-    required: false
-  },
-  role: {
-    type: String,
-    unique: true,
-    required: false
-  },
-  rank: {
-    type: String,
-    unique: true,
-    required: false
-  },
+  firstname: String,
+  lastname: String,
+  sichip: String,
+  club: String,
+  role: String,
+  rank: String,
   birthday: {
     type: Date,
      default: Date.now
   },
-  sichip: {
-    type: String,
-    unique: true,
-    required: false
-  },
+  
   hashedPassword: {
     type: String,
     required: true
@@ -96,9 +72,10 @@ schema.methods.checkPassword = function(password) {
 };
 
 schema.statics.authorize = function(login, password, callback) {
+var User = this;
 
   async.waterfall([
-      function(callback)  {login
+      function(callback)  {
         User.findOne({login: login}, callback);
       },
       function(user, callback)  {
@@ -119,7 +96,8 @@ schema.statics.authorize = function(login, password, callback) {
       ], callback);
 };
 
-var User = exports.User = mongoose.model('User', schema);
+exports.User = mongoose.model('User', schema);
+
 
 function AuthError (message) {
   Error.apply(this, arguments);

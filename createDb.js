@@ -34,9 +34,9 @@ function requireModelIndexes (callback) {
 function createUsers (callback) {
   var User = require('models/user').User;
   var users = [
-    {username: 'admin1', password: 'pass'},
-    {username: 'admin2', password: 'pass'},
-    {username: 'admin3', password: 'pass'}
+    {login: 'admin1', password: 'pass'},
+    {login: 'admin2', password: 'pass'},
+    {login: 'admin3', password: 'pass'}
   ];
 
   async.each(users, function(userData, callback) {
