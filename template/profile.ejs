@@ -136,10 +136,10 @@
   $(document.forms['profile-update']).on('submit', function() {
     var form = $(this);
 
-    var user = <%- JSON.stringify(user) %>;
-    console.log(user);
+    var formData = form.serialize();
+    formData += '&<%= user.login %>';
 
-    RequestModule.sendFormData('/updateProfile', 'POST', form, function(data)	{
+    RequestModule.sendFormData('/updateProfile', 'POST', formData, function(data)	{
     	console.log(data);
     });
     return false;
