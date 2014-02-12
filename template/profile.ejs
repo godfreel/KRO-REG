@@ -11,8 +11,8 @@
 		<br>
 		<table coumns="2" class="table" visible="true">
 			<tr>
-				<td><label class="col-lg-8">Name</label></td>
-				<td  ><%=user.get('username')%></td>
+				<td><label class="col-lg-8">First Name</label></td>
+				<td  ><%=user.get('firstname')%></td>
 			</tr>
 			<tr>
 				<td><label class="col-lg-8">Last Name</label></td>
@@ -97,12 +97,10 @@
   $(document.forms['profile-update']).on('submit', function() {
     var form = $(this);
 
-    $.ajax({
-      url: "/updateProfile",
-      method: "POST",
-      data: form.serialize()
-    })
-    .done(function(data){
+    var user = <%- JSON.stringify(user) %>;
+    console.log(user);
+
+    RequestModule.sendFormData('/updateProfile', 'POST', form, function(data)	{
     	console.log(data);
     });
     return false;

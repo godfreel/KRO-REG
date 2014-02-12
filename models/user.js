@@ -8,31 +8,36 @@ var mongoose = require('lib/mongoose'),
   mongoose.set('debug', true);
 
 var schema = new Schema({
-  username: {
+  login: {
     type: String,
     unique: true,
     required: true
   },
+  firstname: {
+    type: String,
+    unique: true,
+    required: false
+  },
   lastname: {
     type: String,
     unique: true,
-    required: true
+    required: false
   },
   
   club: {
     type: String,
     unique: true,
-    required: true
+    required: false
   },
   role: {
     type: String,
     unique: true,
-    required: true
+    required: false
   },
   rank: {
     type: String,
     unique: true,
-    required: true
+    required: false
   },
   birthday: {
     type: Date,
@@ -71,7 +76,7 @@ schema.virtual('password')
 
 schema.statics.updateUser = function(user, callback)  {
 
-  var query = {username: "name"};
+  var query = {login: "name"};
   User.findOneAndUpdate(query, { sichip: user.sichip }, function(err, user)  {
     console.log(arguments);
   });
@@ -82,11 +87,11 @@ schema.methods.checkPassword = function(password) {
   return this.encryptPassword(password) === this.hashedPassword;
 };
 
-schema.statics.authorize = function(username, password, callback) {
+schema.statics.authorize = function(login, password, callback) {
 
   async.waterfall([
-      function(callback)  {
-        User.findOne({username: username}, callback);
+      function(callback)  {login
+        User.findOne({login: login}, callback);
       },
       function(user, callback)  {
         if(user) {
@@ -96,7 +101,7 @@ schema.statics.authorize = function(username, password, callback) {
             callback(new AuthError("Wrong Password"));
           }
         } else {
-          var user = new User({username: username, password: password});
+          var user = new User({login: login, password: password});
           user.save(function(err) {
             if(err) return callback(err);
             callback(null, user);
