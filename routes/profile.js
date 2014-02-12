@@ -5,12 +5,7 @@ exports.get = function(req, res) {
 };
 
 exports.post = function(req, res) {
-	console.log(req.body);
-  	console.log(req.body.sichip);
-
   	User.updateUser(req.body, function(err, data)	{
-  		console.log(data);
-
   		res.send({success: err === null});
   	});
 };
