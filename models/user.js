@@ -77,7 +77,7 @@ schema.virtual('password')
 schema.statics.updateUser = function(user, callback)  {
 
   var query = {login: "name"};
-  User.findOneAndUpdate(query, { sichip: user.sichip }, function(err, user)  {
+	User.findOneAndUpdate(query, { sichip: user.sichip , lastname:user.lastname}, function(err, user)  {
     console.log(arguments);
   });
 

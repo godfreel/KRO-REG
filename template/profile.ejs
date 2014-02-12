@@ -1,12 +1,13 @@
 <% layout('layout/page') -%>
 <% block('title', "User details") -%>
-<form>
+
 	<div class="container"> 
 		
-		<button class="btn btn-primary">Edit</button> 
+		<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button> 
 		<button class="btn btn-success">Ok</button>
 		<button class="btn btn-warning">Cancel</button>
 	</div>
+<form>
 	<div class="container">
 		<br>
 		<table coumns="2" class="table" visible="true">
@@ -44,10 +45,6 @@
 
 	
 </form>
-
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -62,7 +59,49 @@
 
 <form class="form-horizontal profile-update" action="/auth/login" method="POST" name="profile-update">
   <div class="form-group">
-    <label for="input-sichip" class="col-lg-2 control-label">sichip</label>
+    <label for="input-username" class="col-lg-2 control-label">Name</label>
+
+    <div class="col-lg-10">
+      <input name="username" value="name" type="text" class="form-control" id="input-username" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input-lastname" class="col-lg-2 control-label">Last Name</label>
+
+    <div class="col-lg-10">
+      <input name="lastname" value="name" type="text" class="form-control" id="input-lastname" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input-birthday" class="col-lg-2 control-label">Birthday</label>
+
+    <div class="col-lg-10">
+      <input name="birthday" value="name" type="text" class="form-control" id="input-birthday" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input-club" class="col-lg-2 control-label">Club</label>
+
+    <div class="col-lg-10">
+      <input name="club" value="name" type="text" class="form-control" id="input-club" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input-role" class="col-lg-2 control-label">Role</label>
+
+    <div class="col-lg-10">
+      <input name="role" value="name" type="text" class="form-control" id="input-role" placeholder="Имя">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="input-rank" class="col-lg-2 control-label">Rank</label>
+
+    <div class="col-lg-10">
+      <input name="rank" value="name" type="text" class="form-control" id="input-rank" placeholder="Имя">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="input-sichip" class="col-lg-2 control-label">Si-chip</label>
 
     <div class="col-lg-10">
       <input name="sichip" value="name" type="text" class="form-control" id="input-sichip" placeholder="Имя">
