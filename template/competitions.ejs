@@ -1,4 +1,81 @@
 <% layout('layout/page') -%>
 <% block('title', "Соревнования") -%>
+<script src="/vendor/js/bootstrap-datepicker.js"></script>
 
-<p class="lead">Здесь будет список соревнований и кнопка добавить. Всё для админа.</p>
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Создать соревнование</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="createCompetition" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+
+      <form class="form-horizontal create-competition" action="createCompetition" method="POST" name="create-competition">
+      <div class="modal-body">
+        
+      
+
+ 
+  <div class="form-group">
+    <label for="input-name" class="col-lg-4 control-label">Название</label>
+
+    <div class="col-lg-8">
+      <input name="name" value="" type="text" class="form-control" id="input-name" placeholder="Название">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="input-date" class="col-lg-4 control-label">Дата проведения</label>
+	<div class="col-lg-8">
+	    <div class='input-group date'>
+		    <input  type="text" class="form-control" placeholder="Дата проведения" id="input-date">
+		    <span class="input-group-addon">
+		    	<span class="glyphicon glyphicon-calendar"></span>
+		    </span>
+	    </div>
+	  </div>      
+  </div>
+
+  <div class="form-group">
+    <label for="input-competitionClubOwner" class="col-lg-4 control-label">Клуб</label>
+    <div class="col-lg-8">
+      <input name="competitionClubOwner" value="" type="text" class="form-control" id="input-competitionClubOwner" placeholder="Клуб">
+    </div>
+  </div>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+        <button type="submit" class="btn btn-primary">Создать</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<p class="lead">Здесь будет список соревнований. Всё для админа.</p>
+
+<script>
+
+$(document).ready(function () {
+                $('#input-date').datepicker({
+                    format: "mm.dd.yyyy"
+                });  
+            });
+
+  $(document.forms['create-competition']).on('submit', function() {
+    var form = $(this);
+
+    var formData = form.serialize();
+    var cDate = document.querySelector('#input-date').value;
+    formData += '&date=' + cDate;
+    console.log(formData);
+    RequestModule.sendFormData('/createCompetition', 'POST', formData, function(data)	{
+    	console.log(data);
+    });
+    return false;
+  });
+</script>

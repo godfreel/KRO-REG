@@ -14,4 +14,5 @@ module.exports = function(app) {
   app.post('/logout', require('./logout').post);
 
   app.get('/competitions', checkAuth, require('./competitions').get);
+  app.post('/createCompetition', checkAuth, require('./competitions').post);
 };

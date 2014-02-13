@@ -17,4 +17,10 @@ var schema = new Schema({
   }
 });
 
-var Competition = exports.Competition = mongoose.model('Competition', schema);
+schema.statics.createCompetition = function(competition, callback)  {
+  var Competition = this;
+
+  Competition.create(competition, callback);
+}
+
+exports.Competition = mongoose.model('Competition', schema);
