@@ -20,7 +20,10 @@ function open (callback) {
 
 function dropDatabase (callback) {
   var db = mongoose.connection.db;
-  db.dropDatabase(callback);
+  var collection = db.collection('users');
+  collection.drop();
+
+  callback();
 }
 
 function requireModelIndexes (callback) {
