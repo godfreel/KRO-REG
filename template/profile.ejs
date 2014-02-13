@@ -1,6 +1,6 @@
 <% layout('layout/page') -%>
 <% block('title', "User details") -%>
-
+<script src="/vendor/js/bootstrap-datepicker.js"></script>
 	<div class="container"> 
 		
 		<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Edit</button> 
@@ -62,49 +62,57 @@
     <label for="input-firstname" class="col-lg-4 control-label">Fisrst name</label>
 
     <div class="col-lg-8">
-      <input name="firstname" value="name" type="text" class="form-control" id="input-firstname" placeholder="Имя">
+      <input name="firstname" value="" type="text" class="form-control" id="input-firstname" placeholder="">
     </div>
   </div>
   <div class="form-group">
     <label for="input-lastname" class="col-lg-4 control-label">Last Name</label>
 
     <div class="col-lg-8">
-      <input name="lastname" value="name" type="text" class="form-control" id="input-lastname" placeholder="Имя">
+      <input name="lastname" value="" type="text" class="form-control" id="input-lastname" placeholder="">
     </div>
   </div>
   <div class="form-group">
     <label for="input-birthday" class="col-lg-4 control-label">Birthday</label>
-
-    <div class="col-lg-8">
-      <input name="birthday" value="name" type="text" class="form-control" id="input-birthday" placeholder="Имя">
-    </div>
+  <div class="col-lg-8">
+       <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+<script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+  </div>      
   </div>
   <div class="form-group">
     <label for="input-club" class="col-lg-4 control-label">Club</label>
 
     <div class="col-lg-8">
-      <input name="club" value="name" type="text" class="form-control" id="input-club" placeholder="Имя">
+      <input name="club" value="" type="text" class="form-control" id="input-club" placeholder="">
     </div>
   </div>
   <div class="form-group">
     <label for="input-role" class="col-lg-4 control-label">Role</label>
 
     <div class="col-lg-8">
-      <input name="role" value="name" type="text" class="form-control" id="input-role" placeholder="Имя">
+      <input name="role" value="" type="text" class="form-control" id="input-role" placeholder="">
     </div>
   </div>
   <div class="form-group">
     <label for="input-rank" class="col-lg-4 control-label">Rank</label>
 
     <div class="col-lg-8">
-      <input name="rank" value="name" type="text" class="form-control" id="input-rank" placeholder="Имя">
+      <input name="rank" value="" type="text" class="form-control" id="input-rank" placeholder="">
     </div>
   </div>
     <div class="form-group">
     <label for="input-sichip" class="col-lg-4 control-label">Si-chip</label>
 
     <div class="col-lg-8">
-      <input name="sichip" value="name" type="text" class="form-control" id="input-sichip" placeholder="Имя">
+      <input name="sichip" value="" type="text" class="form-control" id="input-sichip" placeholder="">
     </div>
   </div>
   
