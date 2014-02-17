@@ -14,6 +14,7 @@
     "log4js": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "mongoose-middleware": "*",
     "async": "*",
     "connect-mongo": "*"
   }
