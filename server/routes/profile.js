@@ -1,7 +1,9 @@
 var User = require('models/user').User;
 
 exports.get = function(req, res) {
-  res.render('profile');
+  res.send({
+  	success: true
+  });
 };
 
 exports.post = function(req, res) {

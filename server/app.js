@@ -1,61 +1,40 @@
 var express = require('express');
-var http = require('http');
-var path = require('path');
-var config = require('config');
+var app = express();
 var log = require('lib/log')(module);
+var config = require('config');
 var mongoose = require('lib/mongoose');
 var HttpError = require('error').HttpError;
-
-// first commit by alex
-
-var app = express();
-
-if (app.get('env') == 'development') {
-  app.use(express.logger('dev'));
-} else {
-  app.use(express.logger('default'));
-}
-
-app.use(express.bodyParser());
-
-app.use(express.cookieParser());
-
 var MongoStore = require('connect-mongo')(express);
 
-app.use(express.session({
-  secret: config.get('session:secret'),
-  key: config.get('session:key'),
-  cookie: config.get('session:cookie'),
-  store: new MongoStore({mongoose_connection: mongoose.connection})
-}));
-
-app.use(require('middleware/sendHttpError'));
-app.use(require('middleware/loadUser'));
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.methodOverride());
 
 app.use(app.router);
-
 require('routes')(app);
 
-app.use(function(err, req, res, next) {
-  if (typeof err == 'number') { // next(404);
-    err = new HttpError(err);
-  }
+app.use(require('middleware/sendHttpError'));
 
-  if (err instanceof HttpError) {
-    res.sendHttpError(err);
-  } else {
-  if (app.get('env') == 'development') {
-      express.errorHandler()(err, req, res, next);
-  } else {
-      log.error(err);
-      err = new HttpError(500);
-      res.sendHttpError(err);
-    }
-  }
+app.get('/api', function (req, res) {
+    res.send('API is running');
 });
 
-
-http.createServer(app).listen(config.get('port'), function(){
-  log.info('Express server listening on port ' + config.get('port'));
+app.listen(1337, function(){
+    log.info('Express server listening on port 1337');
 });
 
+app.use(function(req, res, next){
+    res.status(404);
+    log.debug('Not found URL: %s',req.url);
+    res.send({ error: 'Not found' });
+    return;
+});
+
+app.use(function(err, req, res, next){
+    res.status(err.status || 500);
+    log.error('Internal error(%d): %s',res.statusCode,err.message);
+    res.send({ error: err.message });
+    return;
+});
