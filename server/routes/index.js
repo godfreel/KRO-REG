@@ -7,8 +7,6 @@ module.exports = function(app) {
   app.get('/profile', require('./profile').get);
   app.post('/updateProfile', require('./profile').post);
   
-
-  app.get('/login', require('./login').get);
   app.post('/login', require('./login').post);
 
   app.post('/logout', require('./logout').post);
