@@ -1,0 +1,63 @@
+<section class="contentContainer" ng-controller="LoginController">
+
+		<table class="login_form">
+			<tr>
+				<td>
+					<form class="form-horizontal" name='loginForm' role="form">
+						<fieldset>
+	
+							<!-- Form Name -->
+							<legend data-i18n="login.loginForm"></legend>
+							
+							<!-- Login input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="logininput" data-i18n="login.userName"></label>
+								<div class="col-md-6">
+									<input id="logininput" 
+										name="userName" 
+										ng-model="user.login"
+										type="text" 
+										class="form-control input-md">
+								</div>
+							</div>
+	
+							<!-- Password input-->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="passwordinput" data-i18n="login.pass"></label>
+								<div class="col-md-6">
+									<input id="passwordinput" 
+										name="password" 
+										ng-model="user.password"
+										type="password" 
+										class="form-control input-md">
+								</div>
+							</div>
+	
+							<!-- Remember me Checkboxes -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="checkboxesRemember"></label>
+								<div class="col-md-4">
+									<div class="checkbox">
+										<label for="checkboxesRemember-0"><input
+											type="checkbox" name="rememberMe"
+											id="checkboxesRemember-0"> <span data-i18n="login.rememberMe"></span>
+										</label>
+									</div>
+								</div>
+							</div>
+	
+							<!-- Button (Double) -->
+							<div class="form-group">
+								<label class="col-md-4 control-label" for="buttonLogin"></label>
+								<div class="col-md-8">
+									<button id="buttonLogin" ng-click="login()" class="btn btn-success" data-i18n="login.button.login"></button>
+									<button id="buttonReset" ng-click="resetItem()" name="buttonReset" type="reset"  class="btn btn-danger" data-i18n="login.button.resetForm"></button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+	
+				</td>
+			</tr>
+		</table>
+	</section>
