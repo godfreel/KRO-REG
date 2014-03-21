@@ -1,0 +1,12 @@
+{
+	"navbar":{
+		"vacations":"Vacations",
+		"orgChart":"Org Chart",
+		"reports":"Reports",
+		"profile":"Profile",
+		"logout":"Logout",
+		"language":"Language",
+		"ru":"Russian",
+		"en":"English" 
+	}
+}

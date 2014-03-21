@@ -40,63 +40,7 @@ define(['appRoutes','service/lazyDependencyResolver'], function(config, lazyDepe
                 )
             });
 
-            $routeProvider.otherwise({redirectTo: '/login'});
-
-            var interceptor = function($q, $location) {
-                return {
-                    'responseError': function(response) {
-                        if(response.status === 401 || response.status === 403) {
-                            $location.path('/login');
-                            return $q.reject(response);
-                        }
-                        else {
-                            return $q.reject(response);
-                        }
-                    }
-                }
-            };
-            $httpProvider.interceptors.push(interceptor);
-        }
-    ]);
-
-    KRO_REG.run(
-        [
-        '$rootScope',
-        '$location',
-        '$route',
-        '$cookieStore',
-
-        function($rootScope, $location, $route, $cookieStore)  {
-            $rootScope.$on('$locationChangeStart', function(ev, next, current) {
-                    var nextPath = $location.path();
-                    var route = $route.routes[nextPath];
-
-                    if(!route) {
-                        return;
-                    }
-
-                    var access = route.access,
-                    i,
-                    securityModel = { username: '', role: 'public' };
-
-                    var cookies = document.cookie.split(";");
-                    for(i = 0; i<cookies.length; i++)   {
-                        if(cookies[i].indexOf('securityModel') !== -1)  {
-                            var c = cookies[i].substr(cookies[i].indexOf("=") + 1);
-                            securityModel = JSON.parse(unescape(c));
-                            break;
-                        }
-                    }
-
-                    var isAllowed = access.bitMask & securityModel.role.bitMask;
-
-                    if(nextPath.indexOf("login") === -1)    {
-                        if(!isAllowed) {
-                            $rootScope.error = "Access denied";
-                            ev.preventDefault();
-                        }
-                    }                  
-                  });
+            $routeProvider.otherwise({redirectTo: '/competitions'});
         }
     ]);
 

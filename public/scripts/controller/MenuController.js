@@ -9,6 +9,14 @@ define(['appModule'], function(KRO_REG)
 
 	 	function($scope, l10n, $location, AuthService){
 	 		
+	 		$scope.changeLocal = function(local) {
+	 			l10n.changeLocal(local);
+	 			$scope.$parent.changeLanguage();
+	 		};
+
+	 		$scope.competitionURL = function () {
+	 			$location.path('/competitions');
+	 		}
 	 	}
 	]);
 });

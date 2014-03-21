@@ -18,6 +18,14 @@ define([], function()
         ],
 
         routes: {
+            '/competitions': {
+                templateUrl: 'views/competitions.html',
+                dependencies: [
+                    'controller/Competitions/CompetitionsController',
+                    'controller/Competitions/CompetitionsURLController'
+                ],
+                access: access.anon
+            },
             '/login': {
                 templateUrl: 'login.html',
                 dependencies: [
