@@ -4,8 +4,8 @@ var async = require('async');
 
 async.series([
   open,
-  dropDatabase,
-  requireModelIndexes,
+//  dropDatabase,
+//  requireModelIndexes,
   createUsers,
   close
 ], function(err, results) {
@@ -35,15 +35,33 @@ function requireModelIndexes (callback) {
 }
 
 function createUsers (callback) {
-  var User = require('models/user').User;
+  var Competition = require('models/competition').Competition;
   var users = [
-    {login: 'admin1', password: 'pass'},
-    {login: 'admin2', password: 'pass'},
-    {login: 'admin3', password: 'pass'}
+    {
+      name: "Соревнование 1",
+      date: Date.now(),
+      place: "Grodno",
+      competitionClubOwner: "Kronan",
+      description: "Описание " + 1
+    },
+    {
+      name: "Соревнование 2",
+      date: Date.now(),
+      place: "Grodno",
+      competitionClubOwner: "Kronan",
+      description: "Описание " + 2
+    },
+    {
+      name: "Соревнование 3",
+      date: Date.now(),
+      place: "Grodno",
+      competitionClubOwner: "Kronan",
+      description: "Описание " + 3
+    }
   ];
 
   async.each(users, function(userData, callback) {
-    var user = new User(userData);
+    var user = new Competition(userData);
     user.save(callback);
   }, callback);
 }

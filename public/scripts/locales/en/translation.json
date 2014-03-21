@@ -8,5 +8,11 @@
 		"language":"Language",
 		"ru":"Russian",
 		"en":"English" 
+	},
+	"compets":{
+		"number":"№",
+		"name":"название",
+		"place":"Место проведения",
+		"descr":"Описание"
 	}
 }

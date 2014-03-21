@@ -11,16 +11,34 @@ var schema = new Schema({
     type: Date,
     required: true
   },
+  place: {
+    type: String,
+    required: true
+  },
   competitionClubOwner: {
+    type: String,
+    required: true
+  },
+  description: {
     type: String,
     required: true
   }
 });
 
-schema.statics.createCompetition = function(competition, callback)  {
+schema.statics.createCompetition = function(cmp, callback)  {
   var Competition = this;
 
-  Competition.create(competition, callback);
-}
+  Competition.create(cmp, callback);
+};
+
+schema.statics.paginate = function(options, callback)  {
+  var Competition = this;
+
+  Competition
+      .find()
+      .page(options, function (err, results) {
+        callback(null, results);
+      });
+};
 
 exports.Competition = mongoose.model('Competition', schema);

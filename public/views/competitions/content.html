@@ -1,3 +1,39 @@
 <div ng-controller="CompetitionsController">
-	
+
+	<div class="panel panel-default">
+		<div id="vacationRequests" class="panel-collapse collapse in"
+			style="height: auto;">
+			<div class="panel-body">
+				<table class="table table-condensed table-hover">
+					<thead>
+						<tr>
+							<th data-i18n="compets.startDate"></th>
+							<th data-i18n="compets.name"></th>
+							<th data-i18n="compets.place"></th>
+							<th data-i18n="compets.descr"></th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cmp in competitions" class="tableContent">
+							<td>{{cmp.id}}</td>
+							<td>{{cmp.name}}</td>
+							<td>{{cmp.place}}</td>
+							<td>{{cmp.description}}</td>
+						</tr>
+						<tr ng-show="isPaginationRendered()" class="tablePaginator">
+							<td colspan="8" align="center">
+								<pagination boundary-links="true" max-size="maxSize" items-per-page="pageSize" total-items="totalItems" page="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" on-select-page="selectPage(page)"></pagination></td>
+						</tr>
+						<tr ng-show="hasNoData()">
+							<td colspan="8" align="center">
+								<span data-i18n="message.noData"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
+<hr>

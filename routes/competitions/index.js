@@ -1,17 +1,15 @@
 var Competition = require('models/competition').Competition;
+var log = require('lib/log')(module);
 
 exports.get = function(req, res) {
-  res.render('competitions');
-};
-
-exports.list = function(req, res)	{
-
+	Competition.paginate(req.query, function(err, data)	{
+		res.send(data.results);
+	});
 };
 
 exports.post = function(req, res)	{
-	console.log(req.body);
+	log(req.body);
 	Competition.createCompetition(req.body, function(err, data)	{
-		console.log(arguments);
   		res.send({success: err === null});
   	});
 }
