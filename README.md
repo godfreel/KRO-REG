@@ -34,10 +34,3 @@ http://ninjamock.com/s/vposdz
 
 запуск mongo:
 mongod --dbpath ../db --smallfiles
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/godfreel/kro-reg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/godfreel/kro-reg/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
