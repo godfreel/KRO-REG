@@ -6,8 +6,9 @@ define(['appModule'], function(KRO_REG)
 	 	'l10n',
 	 	'$location',
 	 	'AuthService',
+	 	'UserService',
 
-	 	function($scope, l10n, $location, AuthService){
+	 	function($scope, l10n, $location, AuthService, UserService){
 	 		
 	 		$scope.changeLocal = function(local) {
 	 			l10n.changeLocal(local);
@@ -16,6 +17,18 @@ define(['appModule'], function(KRO_REG)
 
 	 		$scope.competitionURL = function () {
 	 			$location.path('/competitions');
+	 		}
+
+	 		$scope.isloggined = function()	{
+	 			return UserService.isloggined();
+	 		}
+
+	 		$scope.redirectToLogin = function()	{
+	 			$location.path('/login');
+	 		}
+
+	 		$scope.logout = function()	{
+	 			UserService.setUser(undefined);
 	 		}
 	 	}
 	]);

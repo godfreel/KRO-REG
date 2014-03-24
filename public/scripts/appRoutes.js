@@ -14,7 +14,8 @@ define([], function()
             'service/AlertService',
             'service/AuthService',
             'service/WaitDialogService',
-            'controller/MenuController'
+            'controller/MenuController',
+            'service/UserService'
         ],
 
         routes: {
