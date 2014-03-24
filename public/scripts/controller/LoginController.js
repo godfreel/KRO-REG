@@ -6,19 +6,37 @@ define(['appModule'], function(KRO_REG)
         'l10n', 
         '$location',
         'AuthService',
-        '$rootScope',
+        '$http',
         'UserService',
 
-        function($scope, l10n, $location, AuthService, $rootScope, UserService) {
+        function($scope, l10n, $location, AuthService, $http, UserService) {
 	
 			$scope.login = function()    {
                 $scope.user.login = $("#logininput").val();
                 if(!$scope.user.password) $scope.user.password = $("#passwordinput").val();
 
-                UserService.setUser($scope.user, function()    {
-                    $location.path("/competitions");
-                });
+                console.log($scope.user);                
+
+                $http({
+                        method: "POST",
+                        data: $scope.user,
+                        url: "login"
+                    })
+                    .success(function(data)  {
+                        console.log(data);
+                        UserService.setUser(data.data, function()    {
+                            $location.path("/competitions");
+                        });
+                    })
+                    .error(function(data)  {
+                        console.error(data);
+                    });
+               
             };
+
+            $scope.logout = function()  {
+                
+            }
 
             $scope.reset = function()   {
                 $scope.user = {};

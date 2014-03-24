@@ -19,8 +19,9 @@ define(['appModule'], function(KRO_REG)
 	 			$location.path('/competitions');
 	 		}
 
-	 		$scope.isloggined = function()	{
-	 			return UserService.isloggined();
+	 		$scope.isLoggined = function()	{
+	 			console.log(UserService.isLoggined());
+	 			return UserService.isLoggined();
 	 		}
 
 	 		$scope.redirectToLogin = function()	{
