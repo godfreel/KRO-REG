@@ -9,7 +9,7 @@ define(['appModule'], function(KRO_REG)
 	 	'UserService',
 
 	 	function($scope, l10n, $location, AuthService, UserService){
-	 		
+
 	 		$scope.changeLocal = function(local) {
 	 			l10n.changeLocal(local);
 	 			$scope.$parent.changeLanguage();
@@ -20,7 +20,7 @@ define(['appModule'], function(KRO_REG)
 	 		}
 
 	 		$scope.isLoggined = function()	{
-	 			console.log(UserService.isLoggined());
+	 			console.log(UserService.getUser());
 	 			return UserService.isLoggined();
 	 		}
 

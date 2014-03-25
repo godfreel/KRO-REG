@@ -5,17 +5,21 @@ define(['appModule'], function(KRO_REG)
 	 	function(){
 	 		
 	 		var user;
-	 		
+
 	 		return {
 	 			isLoggined : function() {
-	 				if(user) {
+	 				if(this.user) {
 	 					return true;
 	 				}
 	 				return false;
 	 			},
 	 			setUser : function(user, callback) {
-	 				user = user;
+	 				this.user = user;
+	 				console.log(this);
 	 				callback();
+	 			},
+	 			getUser : function() {
+	 				return user;
 	 			}
 	 		};		
 	 	}
