@@ -1,0 +1,18 @@
+<section class="contentContainer" ng-controller="DetailController">
+	<div ng-include src="'views/include/menu.html'"></div>
+	
+	<p class="text-primary">{{cmp.name}}</p>
+
+	<div id="cmpName" class="row">
+	  <div class="col-md-4">Дата</div>
+	  <div class="col-md-8">{{cmp.date}}</div>
+	</div>
+	<div id="cmpName" class="row">
+	  <div class="col-md-4">Место проведения</div>
+	  <div class="col-md-8">{{cmp.place}}</div>
+	</div>
+	<div id="cmpName" class="row">
+	  <div class="col-md-4">Бюллетень</div>
+	  <div class="col-md-8">{{cmp.description}}</div>
+	</div>
+</section>

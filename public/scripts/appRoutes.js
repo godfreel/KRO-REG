@@ -27,6 +27,15 @@ define([], function()
                 ],
                 access: access.anon
             },
+            '/competition/:id': {
+                templateUrl: 'views/competitions/detail.html',
+                dependencies: [
+                    'controller/Competitions/CompetitionsController',
+                    'controller/Competitions/CompetitionsURLController',
+                    'controller/Competitions/DetailController'
+                ],
+                access: access.anon
+            },
             '/login': {
                 templateUrl: 'login.html',
                 dependencies: [

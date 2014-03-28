@@ -4,24 +4,29 @@ define(['appModule'], function(KRO_REG)
 	[
 	 	function(){
 	 		
-	 		var user;
+	 		var Pub = {},
+	 			user;
 
-	 		return {
-	 			isLoggined : function() {
-	 				if(this.user) {
-	 					return true;
-	 				}
-	 				return false;
-	 			},
-	 			setUser : function(user, callback) {
-	 				this.user = user;
-	 				console.log(this);
-	 				callback();
-	 			},
-	 			getUser : function() {
-	 				return user;
-	 			}
-	 		};		
+	 		Pub.isLoggined = function() {
+ 				if(this.user) {
+ 					return true;
+ 				}
+ 				return false;
+ 			}
+ 			Pub.setUser = function(user, callback) {
+ 				this.user = user;
+ 				callback();
+ 			};
+ 			Pub.getUser = function() {
+ 				return user;
+ 			};
+
+ 			Pub.isAdmin = function()	{
+ 				console.log(user);
+ 				return user ? user.role === 'admin' : true;
+ 			}
+
+	 		return Pub;
 	 	}
 	]);
 });

@@ -1,5 +1,6 @@
 <div ng-controller="CompetitionsController">
 
+	<button type="button" class="btn btn-primary pull-right" ng-show="isAdmin()" style="margin-top:15px; margin-right:15px;">Создать соревнование</button>
 	<div class="panel panel-default">
 		<div id="vacationRequests" class="panel-collapse collapse in"
 			style="height: auto;">
@@ -7,7 +8,6 @@
 				<table class="table table-condensed table-hover">
 					<thead>
 						<tr>
-							<th>№</th>
 							<th>Название</th>
 							<th>Место</th>
 							<th>Описание</th>
@@ -16,8 +16,9 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="cmp in competitions" class="tableContent">
-							<td>{{cmp.id}}</td>
-							<td>{{cmp.name}}</td>
+							<td>
+								<a href="" ng-click="console.log(cmp); viewDetail(cmp)">{{cmp.name}}</a>
+							</td>
 							<td>{{cmp.place}}</td>
 							<td>{{cmp.description}}</td>
 						</tr>

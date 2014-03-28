@@ -6,8 +6,9 @@ define(['appModule'], function(KRO_REG)
 	 	'l10n',
 	 	'$location',
 	 	'$http',
+	 	'UserService',
 
-	 	function($scope, l10n, $location, $http){
+	 	function($scope, l10n, $location, $http, UserService){
 	 		
 	 		$scope.competitions = [];
 
@@ -19,12 +20,19 @@ define(['appModule'], function(KRO_REG)
                         url: 'competitions?start=0&count=2'
                     })
                     .success(function(data)  {
-                    	console.table(data);
                         $scope.competitions = data;
                     })
                     .error(function(data)  {
                         console.log(data);
                     });
+		 	}
+
+		 	$scope.viewDetail = function (cmp) {
+		 		$location.path('/competition/' + cmp._id);
+		 	}
+
+		 	$scope.isAdmin = function() {
+				return UserService.isAdmin();
 		 	}
 
 	 		$scope.init();

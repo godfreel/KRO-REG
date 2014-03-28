@@ -20,7 +20,6 @@ define(['appModule'], function(KRO_REG)
 	 		}
 
 	 		$scope.isLoggined = function()	{
-	 			console.log(UserService.getUser());
 	 			return UserService.isLoggined();
 	 		}
 
