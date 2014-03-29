@@ -1,7 +1,7 @@
 define(['appRoutes','service/lazyDependencyResolver'], function(config, lazyDependencyResolver)
 {
 
-    KRO_REG = angular.module('KRO_REG', ['ui.calendar', 'ui.bootstrap', 'ngCookies', 'ngRoute']);
+    KRO_REG = angular.module('KRO_REG', ['ngCookies', 'ngRoute']);
 
     KRO_REG.host = '127.0.0.1';
     

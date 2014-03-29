@@ -3,13 +3,12 @@ define(['appModule'], function(KRO_REG)
     KRO_REG.lazy.controller('LoginController',
     [
         '$scope',
-        'l10n', 
         '$location',
         'AuthService',
         '$http',
         'UserService',
 
-        function($scope, l10n, $location, AuthService, $http, UserService) {
+        function($scope, $location, AuthService, $http, UserService) {
 	
 			$scope.login = function()    {
                 $scope.user.login = $("#logininput").val();

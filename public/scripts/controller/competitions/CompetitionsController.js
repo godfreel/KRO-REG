@@ -3,12 +3,11 @@ define(['appModule'], function(KRO_REG)
 	KRO_REG.lazy.controller('CompetitionsController', 
 	[
 	 	'$scope',
-	 	'l10n',
 	 	'$location',
 	 	'$http',
 	 	'UserService',
 
-	 	function($scope, l10n, $location, $http, UserService){
+	 	function($scope, $location, $http, UserService){
 	 		
 	 		$scope.competitions = [];
 

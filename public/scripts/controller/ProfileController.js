@@ -4,10 +4,9 @@ define(['appModule'], function(KRO_REG)
 	[
 	 	'$routeParams',
 	 	'$scope',
-	 	'l10n',
 	 	'$location',
 
-	 	function($routeParams, $scope, l10n, $location){
+	 	function($routeParams, $scope, $location){
 	 		
 	 	}
 	 	

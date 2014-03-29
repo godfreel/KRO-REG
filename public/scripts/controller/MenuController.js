@@ -3,12 +3,11 @@ define(['appModule'], function(KRO_REG)
 	KRO_REG.lazy.controller('MenuController', 
 	[
 	 	'$scope',
-	 	'l10n',
 	 	'$location',
 	 	'AuthService',
 	 	'UserService',
 
-	 	function($scope, l10n, $location, AuthService, UserService){
+	 	function($scope, $location, AuthService, UserService){
 
 	 		$scope.changeLocal = function(local) {
 	 			l10n.changeLocal(local);

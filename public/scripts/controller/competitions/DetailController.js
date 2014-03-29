@@ -3,14 +3,13 @@ define(['appModule'], function(KRO_REG)
 	KRO_REG.lazy.controller('DetailController', 
 	[
 	 	'$scope',
-	 	'l10n',
 	 	'$location',
 	 	'$http',
 	 	'UserService',
 	 	'$route', 
 	 	'$routeParams',
 
-	 	function($scope, l10n, $location, $http, UserService, $route, $routeParams){
+	 	function($scope, $location, $http, UserService, $route, $routeParams){
 	 		
 	 		$scope.cmp = {};
 
