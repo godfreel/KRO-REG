@@ -1,10 +1,10 @@
 var express = require('express');
 var app = express();
 var path = require('path');
-var log = require('lib/log')(module);
-var config = require('config');
-var mongoose = require('lib/mongoose');
-var HttpError = require('error').HttpError;
+var log = require('./lib/log')(module);
+var config = require('./config');
+var mongoose = require('./lib/mongoose');
+var HttpError = require('./error').HttpError;
 var MongoStore = require('connect-mongo')(express);
 
 app.use(express.favicon());
@@ -16,9 +16,9 @@ app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(app.router);
-require('routes')(app);
+require('./routes')(app);
 
-app.use(require('middleware/sendHttpError'));
+app.use(require('./middleware/sendHttpError'));
 
 app.get('/api', function (req, res) {
     res.send('API is running');
