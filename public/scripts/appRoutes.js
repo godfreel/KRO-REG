@@ -22,17 +22,17 @@ define([], function()
             '/competitions': {
                 templateUrl: 'views/competitions.html',
                 dependencies: [
-                    'controller/Competitions/CompetitionsController',
-                    'controller/Competitions/CompetitionsURLController'
+                    'controller/competitions/CompetitionsController',
+                    'controller/competitions/CompetitionsURLController'
                 ],
                 access: access.anon
             },
             '/competition/:id': {
                 templateUrl: 'views/competitions/detail.html',
                 dependencies: [
-                    'controller/Competitions/CompetitionsController',
-                    'controller/Competitions/CompetitionsURLController',
-                    'controller/Competitions/DetailController'
+                    'controller/competitions/CompetitionsController',
+                    'controller/competitions/CompetitionsURLController',
+                    'controller/competitions/DetailController'
                 ],
                 access: access.anon
             },
