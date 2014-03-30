@@ -6,13 +6,9 @@ define(['appModule'], function(KRO_REG)
 	 	'$location',
 	 	'AuthService',
 	 	'UserService',
+	 	'AlertService',
 
-	 	function($scope, $location, AuthService, UserService){
-
-	 		$scope.changeLocal = function(local) {
-	 			l10n.changeLocal(local);
-	 			$scope.$parent.changeLanguage();
-	 		};
+	 	function($scope, $location, AuthService, UserService, AlertService){
 
 	 		$scope.competitionURL = function () {
 	 			$location.path('/competitions');
@@ -22,12 +18,32 @@ define(['appModule'], function(KRO_REG)
 	 			return UserService.isLoggined();
 	 		}
 
-	 		$scope.redirectToLogin = function()	{
-	 			$location.path('/login');
+	 		$scope.showProfile = function()	{
+	 			$location.path('/profile');
 	 		}
 
 	 		$scope.logout = function()	{
 	 			UserService.setUser(undefined);
+	 		}
+
+	 		$scope.getLogin = function()	{
+	 			return UserService.getUser().login;
+	 		}
+
+	 		$scope.login = function()	{
+	 			if(!isValidCreds()) {
+	 				AlertService.show({
+	 					title: 'Ошибка',
+	 					text: "неверные данные", 
+	 					type: 'error'
+	 				});
+	 				return;
+	 			}
+	 			LoginController.login();
+	 		}
+
+	 		isValidCreds = function() {
+	 			return false;
 	 		}
 	 	}
 	]);

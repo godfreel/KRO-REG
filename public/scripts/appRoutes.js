@@ -7,15 +7,15 @@ define([], function()
         defaultRoutePath: '/',
 
         defaultDependencies: [
-            'l10n',
             'directive/bool',
             'directive/draggable',
             'directive/multiSelect',
             'service/AlertService',
             'service/AuthService',
             'service/WaitDialogService',
-            'controller/MenuController',
-            'service/UserService'
+            'service/UserService',
+            'controller/LoginController',
+            'controller/MenuController'
         ],
 
         routes: {
@@ -33,13 +33,6 @@ define([], function()
                     'controller/competitions/CompetitionsController',
                     'controller/competitions/CompetitionsURLController',
                     'controller/competitions/DetailController'
-                ],
-                access: access.anon
-            },
-            '/login': {
-                templateUrl: 'login.html',
-                dependencies: [
-                    'controller/LoginController',
                 ],
                 access: access.anon
             },
