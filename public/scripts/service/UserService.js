@@ -22,7 +22,6 @@ define(['appModule'], function(KRO_REG)
  			};
 
  			Pub.isAdmin = function()	{
- 				console.log(user);
  				return user ? user.role === 'admin' : true;
  			}
 

@@ -7,6 +7,12 @@ exports.get = function(req, res) {
 	});
 };
 
+exports.count = function(req, res) {
+	Competition.count({}, function(err, count) {
+		res.send({count: count});
+	});
+}
+
 exports.getOne = function(req, res) {
 	console.log(req.query.cmpid);
 

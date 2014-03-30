@@ -3,18 +3,17 @@ define(['appModule'], function(KRO_REG)
     KRO_REG.lazy.service('AuthService', 
     [
         '$http', 
-        '$cookieStore',
         '$rootScope', 
         '$location',
 
 
-        function($http, $cookieStore, $rootScope, $location){
+        function($http, $rootScope, $location){
 
             var accessLevels = routingConfig.accessLevels
                 , userRoles = routingConfig.userRoles
-                , currentUser = $cookieStore.get('securityModel') || { username: '', role: userRoles.public };
+                , currentUser = localStorage.getItem('securityModel') || { username: '', role: userRoles.public };
 
-            $cookieStore.remove('securityModel');
+            localStorage.removeItem('securityModel');
 
             function changeUser(user) {
                 extend(currentUser, user);
@@ -53,11 +52,11 @@ define(['appModule'], function(KRO_REG)
                     var role = routingConfig.userRoles[user.role];
                     var securityModel = {};
                     securityModel.role = role;
-                    $cookieStore.put('securityModel', securityModel);
+                    localStorage.setItem('securityModel', securityModel);
                     currentUser = securityModel;
                 },
                 logout: function(callback) {
-                    $cookieStore.remove('securityModel');
+                    localStorage.removeItem('securityModel');
                     currentUser = { username: '', role: userRoles.public };
                     callback();
                 },

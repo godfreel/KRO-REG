@@ -13,5 +13,6 @@ module.exports = function(app) {
 
   app.get('/competitions', require('./competitions').get);
   app.get('/competition', require('./competitions').getOne);
+  app.get('/cmpCount', require('./competitions').count);
   app.post('/createCompetition', require('./competitions').post);
 };

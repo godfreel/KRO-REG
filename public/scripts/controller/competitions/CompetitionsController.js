@@ -11,19 +11,36 @@ define(['appModule'], function(KRO_REG)
 	 		
 	 		$scope.competitions = [];
 
-	 		
+	 		$scope.page = 1;
+		    $scope.pageSize = 5;
+	 		$scope.maxSize = 5;
+	 		$scope.totalItems = 0;
 
 		 	$scope.init = function()	{
+
 		 		$http({
-                        method: 'GET', 
-                        url: 'competitions?start=0&count=2'
-                    })
-                    .success(function(data)  {
-                        $scope.competitions = data;
-                    })
-                    .error(function(data)  {
-                        console.log(data);
-                    });
+		 			method: 'GET', 
+                    url: 'cmpCount'
+		 		})
+		 		.success(function(data)	{
+		 			$scope.totalItems = data.count;
+		 		});
+
+		 		$scope.getCompetitions();
+		 	}
+
+		 	$scope.getCompetitions = function() {
+		 		$scope.competitions = [];
+		 		$http({
+                    method: 'GET', 
+                    url: 'competitions?start=' + ($scope.page - 1) * $scope.pageSize + '&count=' + $scope.pageSize
+                })
+                .success(function(data)  {
+                    $scope.competitions = data;
+                })
+                .error(function(data)  {
+                    console.log(data);
+                });
 		 	}
 
 		 	$scope.viewDetail = function (cmp) {
@@ -33,6 +50,19 @@ define(['appModule'], function(KRO_REG)
 		 	$scope.isAdmin = function() {
 				return UserService.isAdmin();
 		 	}
+
+		 	$scope.isPaginationRendered = function() {
+				return ($scope.totalItems > $scope.pageSize);
+			};
+			
+			$scope.hasNoData = function() {
+				return ($scope.totalItems === 0);
+			};
+
+			$scope.selectPage = function(page) {
+				$scope.page = page;
+				$scope.getCompetitions();
+			}
 
 	 		$scope.init();
 	 	}
