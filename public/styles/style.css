@@ -1,0 +1,52 @@
+#switcher-container{position:fixed;top:60px;right:5px;z-index:100;}
+@media (max-width: 980px) {#switcher-container{position:absolute;top:55px;}}
+.pf-group{background:transparent none no-repeat 0 0!important;padding:4px;margin:5px auto;}
+.ui-widget{font-size:75%!important;}
+.pf-group input.ui-button{padding:2px!important;font-size:.92em!important;margin-bottom:3px;}
+.btn-toolbar{line-height:28px;}
+.btn-toolbar h4{margin:1em 0 .3em;}
+.btn-toolbar .btn-group{vertical-align:middle;}
+.panel .btn{margin-top:5px;}
+.ui-pnotify.custom .ui-pnotify-container{
+	background-color:#404040!important;
+	background-image:none!important;
+	border:none!important;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+}
+.ui-pnotify.custom .ui-pnotify-title,.ui-pnotify.custom .ui-pnotify-text{
+	font-family:Arial,Helvetica,sans-serif!important;
+	text-shadow:2px 2px 3px black!important;
+	font-size:10pt!important;
+	color:#FFF!important;
+	padding-left:50px!important;
+	line-height:1!important;
+	text-rendering:geometricPrecision!important;
+}
+.ui-pnotify.custom .ui-pnotify-title{font-weight:bold;}
+.ui-pnotify.custom .ui-pnotify-icon{float:left;}
+.ui-pnotify.custom .picon{margin:3px;width:33px;height:33px;}
+.ui-pnotify.stack-bottomright{right:auto;top:auto;left:auto;bottom:auto;}
+.ui-pnotify.stack-custom{top:200px;left:200px;right:auto;}
+.ui-pnotify.stack-custom2{top:auto;left:auto;bottom:200px;right:200px;}
+.ui-pnotify.stack-bar-top{right:0;top:0;}
+.ui-pnotify.stack-bar-bottom{margin-left:15%;right:auto;bottom:0;top:auto;left:auto;}
+
+/* These are just CSS default values to reset the pnotify CSS. */
+.ui-pnotify.stack-bottomright {right: auto;top: auto;left: auto;bottom: auto;}
+
+.login_form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 260px;
+    margin-left: -300px;
+    margin-top: -170px;
+	border: 1px solid #dedede;
+  	border-radius: 4px;
+  	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding: 9px;
+}

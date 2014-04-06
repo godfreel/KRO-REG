@@ -11,21 +11,18 @@ define(['appModule'], function(KRO_REG)
 	 		
 	 		
 	 		function show(opts) {
-	 			$.pnotify({
-    title: 'Regular Notice',
-    text: 'Check me out! I\'m a notice.'
-});
+	 			var stack_bottomright = {"dir1": "up", "dir2": "left", "firstpos1": 25, "firstpos2": 25};
+
 			    var default_opts = {
 			        title: "Title",
 			        text: "Text",
 			        addclass: "stack-bottomright",
-			        stack: {"dir1":"down", "dir2":"right", "push":"top"},
+			        stack: stack_bottomright,
 			        type: 'success'
 			    };
-
 			    var o = $.extend({}, default_opts, opts || {});
 
-			    // $.pnotify(o);
+			    $.pnotify(o);
 			}
 
 	 		return {
