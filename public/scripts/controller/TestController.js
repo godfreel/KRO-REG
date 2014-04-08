@@ -1,6 +1,6 @@
 define(['appModule'], function(KRO_REG)
 {
-    KRO_REG.lazy.controller('LoginController',
+    KRO_REG.lazy.controller('TestController',
     [
         '$scope',
         '$location',

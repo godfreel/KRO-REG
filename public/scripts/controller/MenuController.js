@@ -43,8 +43,18 @@ define(['appModule'], function(KRO_REG)
 	 		}
 
 	 		isValidCreds = function() {
-	 			return false;
+	 			
+	 			var login = $("#inputEmail").val();
+	 			if(!isEmail(login))	{
+	 				return false;
+	 			}
+	 			return true;
 	 		}
+
+	 		isEmail = function(email) {
+				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				return regex.test(email);
+			}
 	 	}
 	]);
 });

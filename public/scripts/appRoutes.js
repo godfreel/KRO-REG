@@ -7,6 +7,7 @@ define([], function()
         defaultRoutePath: '/',
 
         defaultDependencies: [
+            'controller/TestController',
             'directive/bool',
             'directive/draggable',
             'directive/multiSelect',
@@ -22,6 +23,7 @@ define([], function()
             '/competitions': {
                 templateUrl: 'views/competitions.html',
                 dependencies: [
+                    'controller/LoginController',
                     'controller/competitions/CompetitionsController',
                     'controller/competitions/CompetitionsURLController'
                 ],
@@ -30,6 +32,7 @@ define([], function()
             '/competition/:id': {
                 templateUrl: 'views/competitions/detail.html',
                 dependencies: [
+                    'controller/LoginController',
                     'controller/competitions/CompetitionsController',
                     'controller/competitions/CompetitionsURLController',
                     'controller/competitions/DetailController'
@@ -39,6 +42,7 @@ define([], function()
             '/profile': {
                 templateUrl : 'views/profile.html',
                 dependencies: [
+                    'controller/LoginController',
                     'controller/ProfileController'
                 ],
                 access: access.user
