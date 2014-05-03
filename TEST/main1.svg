@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1">
+    <desc>SVG+DOM Interfaces</desc>
+
+
+    <style>
+        line.bold {
+        stroke: #f00;
+        stroke-width: 2
+        }
+        line.thin {
+        stroke: #a6f3e5;
+        stroke-width: 1
+        }
+        circle, text {
+        fill: #0f0;
+        opacity: 0;
+        font-family: 'Open Sans' Helvetica, Arial, sans-serif;
+
+        }
+    </style>
+
+
+
+
+    <line class="bold" x1="0" y1="50%" x2="0" y2="50%" > <!-- Java -->
+        <animate attributeName="x2" to="15%" dur="400ms" fill="freeze" />
+    </line>
+
+    <line class="bold" x1="15%" y1="50%" x2="15%" y2="50%"> <!-- SQL -->
+        <animate attributeName="x2" to="22%" begin="400ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="80%" begin="400ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="22%" y1="80%" x2="22%" y2="80%"> <!-- PHP -->
+        <animate attributeName="x2" to="30%" begin="800ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="20%" begin="800ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="30%" y1="20%" x2="30%" y2="20%" > <!-- JSF -->
+        <animate attributeName="x2" to="37%" begin="1200ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="58%" begin="1200ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="37%" y1="58%" x2="37%" y2="58%" > <!-- CSS -->
+        <animate attributeName="x2" to="44%" begin="1600ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="33%" begin="1600ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="44%" y1="33%" x2="44%" y2="33%" > <!-- XML -->
+        <animate attributeName="x2" to="51%" begin="2000ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="65%" begin="2000ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="51%" y1="65%" x2="51%" y2="65%" > <!-- HTML/XHTML/DHTML -->
+        <animate attributeName="x2" to="58%" begin="2400ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="20%" begin="2400ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="58%" y1="20%" x2="58%" y2="20%" > <!-- JavaScript -->
+        <animate attributeName="x2" to="65%" begin="2800ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="73%" begin="2800ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="65%" y1="73%" x2="65%" y2="73%" > <!-- Objective C -->
+        <animate attributeName="x2" to="72%" begin="3200ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="30%" begin="3200ms" dur="400ms" fill="freeze" />
+    </line>
+    <line class="bold" x1="72%" y1="30%" x2="72%" y2="30%" >  <!-- JSP -->
+        <animate attributeName="x2" to="85%" begin="3600ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="50%" begin="3600ms" dur="400ms" fill="freeze" />
+    </line>
+
+    <line class="bold" x1="85%" y1="50%" x2="85%" y2="50%" >
+        <animate attributeName="x2" to="100%" begin="4000ms" dur="400ms" fill="freeze" />
+        <animate attributeName="y2" to="50%" begin="4000ms" dur="400ms" fill="freeze" />
+    </line>
+
+
+
+
+    <line class="thin" x1="15%" y1="50%" x2="15%" y2="50%" >
+        <animate attributeName="x2" to="30%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="20%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+    <line class="thin" x1="15%" y1="50%" x2="15%" y2="50%" >
+        <animate attributeName="x2" to="37%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="58%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+    <line class="thin" x1="15%" y1="50%" x2="15%" y2="50%" >
+        <animate attributeName="x2" to="44%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="33%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="22%" y1="80%" x2="22%" y2="80%" >
+        <animate attributeName="x2" to="37%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="58%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+    <line class="thin" x1="22%" y1="80%" x2="22%" y2="80%" >
+        <animate attributeName="x2" to="51%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="65%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="30%" y1="20%" x2="30%" y2="20%" >
+        <animate attributeName="x2" to="44%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="33%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="37%" y1="58%" x2="37%" y2="58%" >
+        <animate attributeName="x2" to="51%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="65%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+    <line class="thin" x1="37%" y1="58%" x2="37%" y2="58%" >
+        <animate attributeName="x2" to="72%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="30%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="44%" y1="33%" x2="44%" y2="33%" >
+        <animate attributeName="x2" to="58%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="20%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+    <line class="thin" x1="44%" y1="33%" x2="44%" y2="33%" >
+        <animate attributeName="x2" to="85%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="50%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="51%" y1="65%" x2="51%" y2="65%" >
+        <animate attributeName="x2" to="65%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="73%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="58%" y1="20%" x2="58%" y2="20%" >
+        <animate attributeName="x2" to="72%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="30%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+    <line class="thin" x1="65%" y1="73%" x2="65%" y2="73%" >
+        <animate attributeName="x2" to="85%" begin="3600ms" dur="800ms" fill="freeze" />
+        <animate attributeName="y2" to="50%" begin="3600ms" dur="800ms" fill="freeze" />
+    </line>
+
+
+
+
+
+    <circle cx="15%" cy="50%" r="7">
+        <animate attributeName="opacity" to="1" begin="400ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="22%" cy="80%" r="7">
+        <animate attributeName="opacity" to="1" begin="800ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="30%" cy="20%" r="7">
+        <animate attributeName="opacity" to="1" begin="1200ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="37%" cy="58%" r="7">
+        <animate attributeName="opacity" to="1" begin="1600ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="44%" cy="33%" r="7">
+        <animate attributeName="opacity" to="1" begin="2000ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="51%" cy="65%" r="7">
+        <animate attributeName="opacity" to="1" begin="2400ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="58%" cy="20%" r="7">
+        <animate attributeName="opacity" to="1" begin="2800ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="65%" cy="73%" r="7">
+        <animate attributeName="opacity" to="1" begin="3200ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="72%" cy="30%" r="7">
+        <animate attributeName="opacity" to="1" begin="3600ms" dur="30ms" fill="freeze" />
+    </circle>
+    <circle cx="85%" cy="50%" r="7">
+        <animate attributeName="opacity" to="1" begin="4400ms" dur="30ms" fill="freeze" />
+    </circle>
+
+    <text y="47%">
+        <tspan x="14%">JAVA</tspan>
+        <animate attributeName="opacity" to="1" begin="400ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="84%">
+        <tspan x="21%">SQL</tspan>
+        <animate attributeName="opacity" to="1" begin="800ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="17%">
+        <tspan x="29%">PHP</tspan>
+        <animate attributeName="opacity" to="1" begin="1200ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="62%">
+        <tspan x="36%">JSF</tspan>
+        <animate attributeName="opacity" to="1" begin="1600ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="30%">
+        <tspan x="43%">CSS</tspan>
+        <animate attributeName="opacity" to="1" begin="2000ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="68%">
+        <tspan x="50%">XML</tspan>
+        <animate attributeName="opacity" to="1" begin="2400ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="18%">
+        <tspan x="57%">HTML/XHTML/DHTML</tspan>
+        <animate attributeName="opacity" to="1" begin="2800ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="76%">
+        <tspan x="64%">JavaScript</tspan>
+        <animate attributeName="opacity" to="1" begin="3200ms" dur="530ms" fill="freeze" />
+    </text>
+
+    <text y="27%">
+        <tspan x="71%">Objective C</tspan>
+        <animate attributeName="opacity" to="1" begin="3600ms" dur="530ms" fill="freeze"  />
+    </text>
+
+    <text y="53%">
+        <tspan x="84%">JSP</tspan>
+        <animate attributeName="opacity" to="1" begin="4000ms" dur="530ms" fill="freeze"  />
+    </text>
+
+
+
+
+</svg>
