@@ -56,6 +56,7 @@
 	    };
 	    var it = 0;
 	    var o = API.o = jQuery.extend({}, default_options, options || {});
+	    var movies_count = o.movies.length;
 
 	    var target;
 	    var player;
@@ -95,8 +96,11 @@
 						it = 0;
 					}
 
+					//calculate right duration
+					var nextDuration = it ? o.movies[it-1].duration : o.movies[o.movies.length - 1].duration;
+
 					//schedule next execution
-					scheduleNext(o.movies[it].src, o.movies[it].duration);
+					scheduleNext(o.movies[it].src, nextDuration);
 				}, duration);
 	    	}
 
