@@ -37,9 +37,6 @@ define(['appModule'], function(KRO_REG)
                 })
                 .success(function(data)  {
                     $scope.competitions = data;
-                })
-                .error(function(data)  {
-                    console.log(data);
                 });
 		 	}
 

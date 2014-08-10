@@ -68,6 +68,7 @@ schema.statics.updateUser = function(user, callback)  {
 }
 
 schema.methods.checkPassword = function(password) {
+  console.log(this.hashedPassword);
   return this.encryptPassword(password) === this.hashedPassword;
 };
 

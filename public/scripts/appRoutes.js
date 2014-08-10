@@ -15,7 +15,6 @@ define([], function()
             'service/AuthService',
             'service/WaitDialogService',
             'service/UserService',
-            'controller/LoginController',
             'controller/MenuController'
         ],
 
@@ -23,7 +22,6 @@ define([], function()
             '/competitions': {
                 templateUrl: 'views/competitions.html',
                 dependencies: [
-                    'controller/LoginController',
                     'controller/competitions/CompetitionsController',
                     'controller/competitions/CompetitionsURLController'
                 ],
@@ -32,7 +30,6 @@ define([], function()
             '/competition/:id': {
                 templateUrl: 'views/competitions/detail.html',
                 dependencies: [
-                    'controller/LoginController',
                     'controller/competitions/CompetitionsController',
                     'controller/competitions/CompetitionsURLController',
                     'controller/competitions/DetailController'
@@ -42,7 +39,6 @@ define([], function()
             '/profile': {
                 templateUrl : 'views/profile.html',
                 dependencies: [
-                    'controller/LoginController',
                     'controller/ProfileController'
                 ],
                 access: access.user

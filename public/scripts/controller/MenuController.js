@@ -1,14 +1,17 @@
 define(['appModule'], function(KRO_REG)
 {
 	KRO_REG.lazy.controller('MenuController', 
-	[
+	[	
+		'$http',
 	 	'$scope',
 	 	'$location',
 	 	'AuthService',
 	 	'UserService',
 	 	'AlertService',
 
-	 	function($scope, $location, AuthService, UserService, AlertService){
+	 	function($http, $scope, $location, AuthService, UserService, AlertService){
+
+	 		$scope.user = {};
 
 	 		$scope.competitionURL = function () {
 	 			$location.path('/competitions');
@@ -39,7 +42,24 @@ define(['appModule'], function(KRO_REG)
 	 				});
 	 				return;
 	 			}
-	 			LoginController.login();
+
+	 			$scope.user.login = $("#inputEmail").val();
+                $scope.user.password = $("#inputPassword").val();
+
+                $http({
+                        method: "POST",
+                        data: $scope.user,
+                        url: "login"
+                    })
+                    .success(function(data)  {
+                        console.log(data);
+                        UserService.setUser(data.data, function()    {
+                            $location.path("/competitions");
+                        });
+                    })
+                    .error(function(data)  {
+                        console.error(data);
+                    });
 	 		}
 
 	 		isValidCreds = function() {

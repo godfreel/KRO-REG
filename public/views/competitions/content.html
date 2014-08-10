@@ -11,7 +11,8 @@
 							<th>Название</th>
 							<th>Место</th>
 							<th>Описание</th>
-							<th></th>
+							<th>дата</th>
+							<th>действия</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -21,6 +22,7 @@
 							</td>
 							<td>{{cmp.place}}</td>
 							<td>{{cmp.description}}</td>
+							<td>{{cmp.date | date:'dd.mm.yyyy'}}</td>
 							<td>
 								<button type="button" class="btn btn-xs btn-success">Участвовать</button>
 							</td>

@@ -2,30 +2,38 @@ define(['appModule'], function(KRO_REG)
 {
 	KRO_REG.lazy.service('UserService', 
 	[
-	 	function(){
-	 		
-	 		var Pub = {},
-	 			user;
+		'$rootScope',
 
-	 		Pub.isLoggined = function() {
- 				if(this.user) {
+	 	function($rootScope){
+	 		
+	 		$rootScope.user = {};
+
+	 		isLoggined = function() {
+ 				if($rootScope.user) {
  					return true;
  				}
  				return false;
  			}
- 			Pub.setUser = function(user, callback) {
- 				this.user = user;
- 				callback();
+ 			
+ 			setUser = function(user, callback) {
+ 				$rootScope.user = user;
+ 				callback ? callback() : false;
  			};
- 			Pub.getUser = function() {
- 				return user;
+ 			
+ 			getUser = function() {
+ 				return $rootScope.user;
  			};
 
- 			Pub.isAdmin = function()	{
- 				return user ? user.role === 'admin' : true;
+ 			isAdmin = function()	{
+ 				return $rootScope.user ? $rootScope.user.role === 'admin' : true;
  			}
 
-	 		return Pub;
+	 		return {
+	 			isLoggined: isLoggined,
+	 			setUser: setUser,
+	 			getUser: getUser,
+	 			isAdmin: isAdmin
+	 		};
 	 	}
 	]);
 });

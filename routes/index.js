@@ -1,5 +1,7 @@
 var checkAuth = require('./../middleware/checkAuth');
 
+var cmpRouting = require('./competitions');
+
 module.exports = function(app) {
 
   app.get('/', require('./frontpage').get);
@@ -11,8 +13,10 @@ module.exports = function(app) {
 
   app.post('/logout', require('./logout').post);
 
-  app.get('/competitions', require('./competitions').get);
-  app.get('/competition', require('./competitions').getOne);
-  app.get('/cmpCount', require('./competitions').count);
-  app.post('/createCompetition', require('./competitions').post);
+
+//competitions mapping
+  app.get('/competitions', cmpRouting.get);
+  app.get('/competition', cmpRouting.getOne);
+  app.get('/cmpCount', cmpRouting.count);
+  app.post('/createCompetition', cmpRouting.post);
 };

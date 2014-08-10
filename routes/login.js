@@ -6,7 +6,7 @@ var async = require('async');
 exports.post = function(req, res, next)	{
 	var login = req.body.login,
 		password = req.body.password;
-
+console.log({login: login, password: password});
 	User.authorize(login, password, function(err, user)	{
 		if(err) {
 			if(err instanceof AuthError)	{

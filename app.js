@@ -20,7 +20,7 @@ app.use(bodyParser());
 app.use(cookieParser());
 app.use(methodOverride());
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 require('./routes')(app);
 
